@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promoción y Pedidos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf5;
+      color: #333;
+    }
+    header {
+      background-color: #d84315;
+      padding: 1rem 2rem;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      background-color: #ff7043;
+      padding: 0.7rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 20px;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; }
+    .section { padding: 2rem; text-align: center; }
+    .menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      width: 260px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover { transform: scale(1.05); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3 { margin: 0.5rem 0; color: #d84315; }
+    .card p { padding: 0 1rem 1rem; font-size: 0.95rem; }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    #pedidoModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    #pedidoModal .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      position: relative;
+    }
+    #pedidoModal span {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      color: red;
+    }
+    @media (max-width: 600px) {
+      .menu { flex-direction: column; align-items: center; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PROMOCIÓN Y VENTA DE COMIDA RÁPIDA</h1>
+  <p>Promoción y pedidos online.</p>
+</header>
+
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#menu">Menú</a>
+  <a href="#promoción">Promoción</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section class="hero" id="inicio">
+  <h1>¡Bienvenido!</h1>
+  <p>Disfruta auténtica comida en tu hogar</p>
+</section>
+
+
+
+<section class="section" id="menu">
+  <h2>Menú Destacado</h2>
+  <div class="menu">
+    <div class="card" onclick="abrirFormulario('HAMBURGUESA DE POLLO')">
+      <img src="https://comedera.com/wp-content/uploads/sites/9/2023/07/Hamburguesa-de-pollo-picante.jpg" alt="Hamburguesa de pollo">
+      <h3>HAMBURGUESA DE POLLO</h3>
+      <p>Hamburguesa de pollo criollo apanado en pan rallado.</p>
+    </div>
+    <div class="card" onclick="abrirFormulario('ALITAS A LA BBQ')">
+      <img src="https://www.unileverfoodsolutions.com.co/dam/global-ufs/mcos/NOLA/calcmenu/recipes/col-recipies/recetas-fruco-bbq/Alitas-BBQ-1200x709.jpg" alt="Alitas a la BBQ">
+      <h3>ALITAS A LA BBQ</h3>
+      <p>Alitas de pollo bañadas en salsa BBQ.</p>
+    </div>
+    <div class="card" onclick="abrirFormulario('ALBÓNDIGAS DE CERDO')">
+      <img src="https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg" alt="Albóndigas de cerdo">
+      <h3>ALBÓNDIGAS DE CERDO</h3>
+      <p>Albóndigas caseras con salsa barbacoa.</p>
+    </div>
+    
+    
+    
+    
+    
+    <div class="card" onclick="abrirFormulario('...........')">
+      <img src="https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg" alt="Albóndigas de cerdo">
+      <h3>...........</h3>
+      <p>........................................</p>
+    </div>
+    
+    
+    
+    
+    <div class="card" onclick="abrirFormulario('...........')">
+      <img src="https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg" alt="Albóndigas de cerdo">
+      <h3>...........</h3>
+      <p>........................................</p>
+    </div>
+    
+    
+    
+    
+    <div class="card" onclick="abrirFormulario('...........')">
+      <img src="https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg" alt="Albóndigas de cerdo">
+      <h3>...........</h3>
+      <p>........................................</p>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="card" onclick="abrirFormulario('...........')">
+      <img src="https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg" alt="Albóndigas de cerdo">
+      <h3>...........</h3>
+      <p>........................................</p>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="card" onclick="abrirFormulario('...........')">
+      <img src="https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg" alt="Albóndigas de cerdo">
+      <h3>...........</h3>
+      <p>........................................</p>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <section class="section" id="promoción" style="cursor: pointer;">
+  <h2>Promociones Especiales</h2>
+  <p>Haz clic aquí para ver nuestras ofertas más recientes.</p>
+</section>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <h2>Contáctanos</h2>
+  <p>📞 +593 9 9999 9999 &nbsp; | &nbsp; 📍 Babahoyo, Ecuador</p>
+  <p>Síguenos: @promocionyventadecomidarapida</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Sabores de todo gusto. Todos los derechos reservados.</p>
+</footer>
+
+<div id="pedidoModal">
+  <div class="modal-content">
+    <span onclick="cerrarFormulario()">X</span>
+    <h3 id="tituloComida">Pedir:</h3>
+    <form id="formularioPedido" action="https://formspree.io/f/manbodjy" method="POST" onsubmit="redirigirGracias()">
+      <input type="hidden" name="comida" id="comidaSeleccionada">
+      <label for="cantidad">Cantidad:</label><br>
+      <input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+      <label for="direccion">Dirección:</label><br>
+      <textarea id="direccion" name="direccion" rows="3" required></textarea><br><br>
+      <button type="submit">Enviar pedido</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function abrirFormulario(nombreComida) {
+    document.getElementById('tituloComida').textContent = 'Pedir: ' + nombreComida;
+    document.getElementById('comidaSeleccionada').value = nombreComida;
+    document.getElementById('pedidoModal').style.display = 'flex';
+  }
+  function cerrarFormulario() {
+    document.getElementById('pedidoModal').style.display = 'none';
+  }
+  function redirigirGracias() {
+    setTimeout(function() {
+      window.location.href = 'gracias.html';
+    }, 500);
+  }
+  document.getElementById("promoción").addEventListener("click", function () {
+    window.location.href = "promocion.html";
+  });
+</script>
+</body>
+</html>
